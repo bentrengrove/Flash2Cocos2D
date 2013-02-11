@@ -42,7 +42,7 @@
     NSString *baseFile = [NSString stringWithFormat:@"%@_sheets.xml", _xmlfile];
     
     NSError *error = nil;
-    TBXML *_xmlMaster = [TBXML tbxmlWithXMLFile:baseFile error:&error];
+    TBXML *_xmlMaster = [TBXML newTBXMLWithXMLFile:baseFile error:&error];
     
     
     
@@ -96,7 +96,8 @@
             _sprite = [FTCSprite spriteWithFile:nImage];
         
         // SET ANCHOR P
-        CGSize eSize = [_sprite boundingBoxInPixels].size;
+        CGSize eSize = [_sprite boundingBox].size;
+        
         CGPoint aP = CGPointMake(nAX/eSize.width, (eSize.height - (-nAY))/eSize.height);        
         
         [_sprite setAnchorPoint:aP];      
@@ -120,7 +121,7 @@
 
     
     NSError *error = nil;    
-    TBXML *_xmlMaster = [TBXML tbxmlWithXMLFile:baseFile error:&error];
+    TBXML *_xmlMaster = [TBXML newTBXMLWithXMLFile:baseFile error:&error];
     
     
     TBXMLElement *_root = _xmlMaster.rootXMLElement;

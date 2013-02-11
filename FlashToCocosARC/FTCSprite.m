@@ -16,6 +16,16 @@
 @synthesize animationsArr;
 
 
+- (id)initWithFile:(NSString *)filename
+{
+    self = [super initWithFile:filename];
+    if (self) {
+        NSMutableDictionary *__animations = [[NSMutableDictionary alloc] init];
+        [self setAnimationsArr:__animations];
+    }
+    
+    return self;
+}
 
 - (id)init
 {
